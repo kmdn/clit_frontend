@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>agnos-web</groupId>
-	<artifactId>agnos-web</artifactId>
+	<groupId>kit.edu</groupId>
+	<artifactId>clit-web</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 
@@ -53,7 +53,7 @@
 			<version>1.2.8-SNAPSHOT</version> </dependency> -->
 		<dependency>
 			<groupId>kit.edu</groupId>
-			<artifactId>agnos_collab</artifactId>
+			<artifactId>clit</artifactId>
 			<version>0.0.1</version>
 			<!-- <scope>system</scope> <systemPath>${basedir}/repo/kit/edu/agnos-collab/0.0.1/agnos-collab-0.0.1.jar</systemPath> -->
 		</dependency>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                                                        
+                                                            
     
     
     
@@ -12,8 +12,10 @@
     
     
     
-    <wb-module deploy-name="agnos-web-0.0.1">
-                                                                                                                
+    
+    <wb-module deploy-name="clit-web-0.0.1">
+                                                                                                                        
+        
         
         
         
@@ -27,7 +29,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                                                                                                
+                                                                                                                        
+        
         
         
         
@@ -41,31 +44,19 @@
         
         
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-                                                        
+                                                                
+        
         
         
         
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="agnos_collab-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Agnos_Collab/Agnos_Collab">
+        <dependent-module archiveName="clit-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/clit/clit">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                                                                                                                
+                                                                                                                        
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <property name="context-root" value="agnos-web"/>
-                                                                                                                
         
         
         
@@ -79,7 +70,9 @@
         
         
         <property name="java-output-path" value="/agnos-web/build/classes"/>
-                                                                                                            
+        <property name="context-root" value="clit-web"/>
+                                                                                                                    
+    
     
     
     
@@ -93,7 +86,8 @@
     
     
     </wb-module>
-                                                    
+                                                        
+
 
 
 
