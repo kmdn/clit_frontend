@@ -195,21 +195,27 @@ public class IndexController {
 		if (icpTypeString.equals("combiner")) {
 			// Collections.addAll(icps, "Intersection", "Union");
 			icps.addAll(ExperimentSettings.getCombinerNames());
-		} else if (icpTypeString.equals("splitter")) {
+		} else if (icpTypeString.toLowerCase().contains("splitter")) {
 			icps.addAll(ExperimentSettings.getSplitterNames());
 			// Collections.addAll(icps, "Copy");
-		} else if (icpTypeString.equals("filter")) {
+		} else if (icpTypeString.toLowerCase().contains("filter")) {
 			icps.addAll(ExperimentSettings.getFilterNames());
 			// Collections.addAll(icps);
-		} else if (icpTypeString.equals("translator")) {
+		} else if (icpTypeString.toLowerCase().contains("translator")) {
 			icps.addAll(ExperimentSettings.getTranslatorNames());
 			// Collections.addAll(icps, "DBpedia2Wikidata");
+		} else if (icpTypeString.toLowerCase().contains("evaluator")) {
+			icps.addAll(ExperimentSettings.getEvaluatorNames());
+		} else if (icpTypeString.toLowerCase().contains("explainer")) {
+			icps.addAll(ExperimentSettings.getExplainerNames());
 		} else {
 			// didn't define any/defined an incorrect one, so output all possibilities
 			icps.addAll(ExperimentSettings.getCombinerNames());
 			icps.addAll(ExperimentSettings.getSplitterNames());
 			icps.addAll(ExperimentSettings.getFilterNames());
 			icps.addAll(ExperimentSettings.getTranslatorNames());
+			icps.addAll(ExperimentSettings.getEvaluatorNames());
+			icps.addAll(ExperimentSettings.getExplainerNames());
 		}
 		Collections.sort(icps);
 		return icps;
