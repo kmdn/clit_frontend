@@ -5,3 +5,4 @@
 *.css
 *.map
 *.svg
+!/target/clit-web-0.0.1.war
