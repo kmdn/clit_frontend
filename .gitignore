@@ -1,2 +1,7 @@
 /build/
-#/target/
+/target/
+*.class
+*.war
+*.css
+*.map
+*.svg
