@@ -20,12 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import dataset.DatasetStore;
+import experiment.EnumComponentType;
 import experiment.Experiment;
 import experiment.ExperimentBuilder;
 import experiment.ExperimentSettings;
 import experiment.ExperimentStore;
 import experiment.Experimenter;
-import structure.config.constants.EnumPipelineType;
 
 @Controller
 public class IndexController {
@@ -169,14 +169,14 @@ public class IndexController {
 	@RequestMapping("/linkers")
 	public @ResponseBody List<String> getLinkers(
 			@RequestParam(value = "pipelineType", required = false) String experimentTypeString) {
-		EnumPipelineType pipelineType = EnumPipelineType.FULL; // default
+		EnumComponentType pipelineType = EnumComponentType.MD_CG_ED; // default
 		try {
-			pipelineType = EnumPipelineType.getByName(experimentTypeString);
+			pipelineType = EnumComponentType.getByName(experimentTypeString);
 		} catch (IllegalArgumentException e) {
 			System.out.println(
 					"Warning: Invalid task type '" + experimentTypeString + "', return linkers for default: 'FULL'");
 		}
-		final List<String> linkers = ExperimentSettings.getLinkerForExperimentType(pipelineType);
+		final List<String> linkers = ExperimentSettings.getComponentsForType(pipelineType);
 		Collections.sort(linkers);
 		return linkers;
 	}
