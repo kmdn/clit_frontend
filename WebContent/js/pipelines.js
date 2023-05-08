@@ -41,10 +41,10 @@ const examplePipelineConfigs = [
 		"pipelineConfigType" : "complex",
 		"components" : {
 				"md": [
-					{id: "MD1", value: "spaCy"}
+					{id: "MD1", value: "Babelfy"}
 				],
 				"cg": [
-					{id: "CG1", value: "WikidataDict"}
+					{id: "CG1", value: "DBpediaLookup"}
 				]
 		},
 		"connections": [
@@ -97,7 +97,6 @@ const examplePipelineConfigs = [
 				"md": [
 					{id: "MD1", value: "Babelfy"},
 					{id: "MD2", value: "DBpediaSpotlight"},
-					{id: "MD3", value: "AIDA"}
 				],
 				"cg_ed": [
 					{id: "CG_ED1", value: "Babelfy"}
@@ -112,10 +111,8 @@ const examplePipelineConfigs = [
 		"connections": [
 			{source: "SP1", target: "MD1"},
 			{source: "SP1", target: "MD2"},
-			{source: "SP1", target: "MD3"},
 			{source: "MD1", target: "CO1"},
 			{source: "MD2", target: "CO1"},
-			{source: "MD3", target: "CO1"},
 			{source: "CO1", target: "CG_ED1"},
 		],
 		"startComponents": [
@@ -255,7 +252,7 @@ const examplePipelineConfigs = [
 	        	{"id": "MD1", "value": "Babelfy"}
 	        ],
 	        "cg": [
-	        	{"id": "CG1", "value": "WikidataDict"}
+	        	{"id": "CG1", "value": "DBpediaLookup"}
 	        ],
 	        "cg_ed": [
 	            {"id": "CG_ED1", "value": "Babelfy"},
@@ -270,9 +267,9 @@ const examplePipelineConfigs = [
 	    },
 	    "connections": [
 	        {"source": "MD1", "target": "SP1"},
-	        {"source": "MD1", "target": "CG1"},
 	        {"source": "SP1", "target": "CG_ED1"},
 	        {"source": "SP1", "target": "CG_ED2"},
+	        {"source": "SP1", "target": "CG1"},
 	        {"source": "CG_ED1","target": "CO1"},
 	        {"source": "CG_ED2", "target": "CO1"}
 	    ],
