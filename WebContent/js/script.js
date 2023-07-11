@@ -652,7 +652,34 @@ function addStandardLinker() {
 	$("#linker").append(newRow);
 
 	fillLinkerDropdown(newRow, ".dropdown-linker");
+ 	$(".dropdown-linker").change(function () {
+        var end = this.value;
+        if (end == customVal) {
+			$("#customStandardLinker").show();
+			$("#customStandardLinkerIP").val(defaultCustomVal);
+		
+			// add event handler to update the pipeline config immediately when an IP is entered
+			$("#customStandardLinkerIP").off("input"); // first remove existing event handlers
+			$("#customStandardLinkerIP").on("input", function() {
+				var ip = $(this).val();
+		
+				// if the input is deleted, use the default custom label again, otherwise the node in the graph has no label
+/*				if (ip == null || ip == "") {
+*/					//var component = pipelineConfig[keyNameComponents][componentType].find(x => x.id === componentId);
+					//component.value = componentValue;
+				const linkerConfigs = getStandardLinkerFormData();
+				linkerConfigs[(linkerIndex-2)+""].linker = ip;
 
+				
+				/*} else {
+					setComponentValue(pipelineConfig, cy, componentId, componentType, ip);
+				}*/
+			});
+		}else {
+			$("#customStandardLinker").hide();
+		}
+
+    });
 	$(".remove-pipeline").on("click", function (event) {
 		$(this).closest(".standard-linker").remove();
 	});
@@ -822,6 +849,9 @@ function getStandardLinkerFormData() {
 	$('.standard-linker').each(function(index, linker) {
 		var linkerId = parseInt($(linker).attr('linker-id'));
 		var linkerName = $(linker).find('select.dropdown-linker option:selected').val();
+		if ($("#customStandardLinkerIP").is(":visible")) {
+			linkerName = $("#customStandardLinkerIP").val()
+		}
 		linkerConfig = {
 				'id' : linkerId,
 				'pipelineConfigType' : 'standard',
@@ -1666,6 +1696,9 @@ function buildStandardLinkerConfigHtml(linkerIndex) {
 		'			<select class="dropdown-linker" name="linker">',
 		'			</select>',
 		'		</div>',
+		'	</div>',
+		'   <div class="form-group" id="customStandardLinker" style="display: none;">',
+		'		<input type="text" class="form-control" id="customStandardLinkerIP" placeholder="Enter IP address">',
 		'	</div>',
 		'	<div class="form-group error-message" style="display: none; text-align: left;">',
 		'		<div class="alert alert-danger"></div>',
