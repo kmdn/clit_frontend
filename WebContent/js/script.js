@@ -680,6 +680,7 @@ function addStandardLinker() {
 		}
 
     });
+    
 	$(".remove-pipeline").on("click", function (event) {
 		$(this).closest(".standard-linker").remove();
 	});
@@ -1370,6 +1371,7 @@ function isInterComponentProcessor(type) {
  */
 function fillLinkerDropdown(linkerBox, htmlClass, pipelineType) {
 	getLinkers(pipelineType, function(linkers) {
+		linkers.push(customVal);
 		var dropdown = $(linkerBox).find(htmlClass);
 		dropdown.empty();
 		$.each(linkers, function(i, linker) {
